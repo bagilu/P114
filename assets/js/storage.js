@@ -1,28 +1,2 @@
 import { requireSupabaseConfig } from "./supabase-client.js";
-
-function extFromFile(file) {
-  const parts = (file.name || "").split(".");
-  return parts.length > 1 ? parts.pop().toLowerCase() : "jpg";
-}
-
-export async function uploadCommunityPhoto({ treeId, userId, file, takenAt }) {
-  const supabase = requireSupabaseConfig();
-  const d = new Date(takenAt);
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const safeName = `${crypto.randomUUID()}.${extFromFile(file)}`;
-  const path = `trees/${treeId}/community/${year}/${month}/${userId}/${safeName}`;
-
-  const { error } = await supabase.storage
-    .from("P114TreeMedia")
-    .upload(path, file, { upsert: false });
-
-  if (error) throw error;
-  return path;
-}
-
-export function publicMediaUrl(filePath) {
-  if (!filePath) return null;
-  const supabase = requireSupabaseConfig();
-  return supabase.storage.from("P114TreeMedia").getPublicUrl(filePath).data.publicUrl;
-}
+function extFromFile(file){const p=(file.name||"").split(".");return p.length>1?p.pop().toLowerCase():"jpg";}export async function uploadCommunityPhoto({treeId,userId,file,takenAt}){const s=requireSupabaseConfig();const d=new Date(takenAt);const y=d.getFullYear();const m=String(d.getMonth()+1).padStart(2,"0");const name=`${crypto.randomUUID()}.${extFromFile(file)}`;const path=`trees/${treeId}/community/${y}/${m}/${userId}/${name}`;const{error}=await s.storage.from("P114TreeMedia").upload(path,file,{upsert:false});if(error)throw error;return path;}export function publicMediaUrl(filePath){if(!filePath)return null;const s=requireSupabaseConfig();return s.storage.from("P114TreeMedia").getPublicUrl(filePath).data.publicUrl;}export async function deleteMediaObject(filePath){const s=requireSupabaseConfig();const{error}=await s.storage.from("P114TreeMedia").remove([filePath]);if(error)throw error;}

@@ -1,36 +1,35 @@
-# P114｜我們的樹 — Web Version V0.001
+# P114｜我們的樹 — Web Version V0.002
 
 MyTreeMyRoot
 
-## Current status
+## V0.002 focus
 
-This is the first static frontend implementation baseline.
+This release completes the first member journey:
+
+`Explore → Tree Profile → Guardian / Tree Language / Story / Photo → My Tree / Me`
 
 Implemented:
-- Shared static layout / responsive design
-- Supabase client with `storageKey: P114-auth`
-- Home
-- Founding Trees
+- Home / Founding Trees
 - Search
 - Explore / Near Me
 - Tree Profile
-- Monthly photo grid
-- Public Tree Language stats
-- Public Stories
-- Guardian Tree action
-- Visit action
-- Login
-- Basic Admin Dashboard
-- Shared API / Auth / Storage / Error modules
-
-Scaffolded:
+- Monthly representative photo grid
+- Community photo upload + pending moderation workflow
+- Tree Language submission/edit
+- Story submission
+- Guardian Tree + visit actions
 - This Month
 - My Tree
-- Me
+- Me / logout / P130 account link
+- Login
+- Basic Admin Dashboard
 
-## Configuration
+## Important deployment note
 
-Copy values into `config.js`:
+**Do not overwrite your working production `config.js` with the blank file in this package.**
+Keep the existing deployed `config.js`, or copy the real values into the new file before publishing.
+
+Required keys:
 
 ```js
 window.P114_CONFIG = {
@@ -42,26 +41,10 @@ window.P114_CONFIG = {
 };
 ```
 
-Never put a Supabase service-role key in frontend files.
+Never place a Supabase service-role key in frontend files.
 
-## Local preview
+## Version
 
-Because ES modules are used, preview with any simple static HTTP server rather than opening `file://` directly.
+Visible web version: `P114 Web Version V0.002`
 
-Examples:
-- VS Code Live Server
-- Python `python -m http.server`
-
-## Deployment
-
-The site is designed for GitHub Pages.
-
-## Versioning
-
-Visible version:
-`P114 Web Version V0.001`
-
-Static assets use:
-`?v=0.001`
-
-Increment both together for every user-visible HTML/CSS/JS release.
+Static asset cache busting: `?v=0.002`
