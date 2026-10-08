@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>樹木檔案｜P114 我們的樹</title>
+<meta name="description" content="P114 我們的樹 MyTreeMyRoot">
+<link rel="stylesheet" href="assets/css/app.css?v=0.001">
+
+</head>
+<body>
+
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">樹</span>
+      <span>P114｜我們的樹<small>MyTreeMyRoot</small></span>
+    </a>
+    <div class="top-actions">
+      <a class="btn btn-ghost hide-mobile" href="search.html">搜尋</a>
+      <a class="btn btn-ghost hide-mobile" href="explore.html">探索</a>
+      <a class="btn" href="login.html">登入</a>
+    </div>
+  </div>
+</header>
+
+
+<main>
+  <section class="shell tree-hero">
+    <div id="tree-media" class="tree-hero-media"></div>
+    <div class="tree-title">
+      <div id="tree-badges"></div>
+      <div id="tree-id" class="eyebrow">TREE</div>
+      <h1 id="tree-name">載入中…</h1>
+      <div id="tree-latin" class="latin"></div>
+      <p id="tree-location" class="meta"></p>
+      <div class="hero-actions">
+        <button id="visit-btn" class="btn btn-primary">我找到它了</button>
+        <button id="guardian-btn" class="btn">設為我的守護樹</button>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><strong id="guardian-count">—</strong><span class="meta">守護者</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell section">
+    <div class="section-head"><div><h2>你找到的是這棵嗎？</h2><p>GPS 只告訴你附近候選樹；請用環境照片確認。</p></div></div>
+    <div id="confirm-photos" class="photo-strip"></div>
+  </section>
+
+  <section class="shell section">
+    <div class="grid grid-2">
+      <article class="card">
+        <h2>物種基本資料</h2>
+        <div id="species-info" class="meta">載入中…</div>
+      </article>
+      <article class="card">
+        <h2>這一棵樹</h2>
+        <div id="individual-info" class="meta">載入中…</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="shell section">
+    <div class="section-head"><div><h2>一樹一月一影</h2><p>One Tree, One Month, One Photo</p></div></div>
+    <div id="month-state" class="state">正在讀取月度照片…</div>
+    <div id="month-grid" class="month-grid" hidden></div>
+  </section>
+
+  <section class="shell section">
+    <div class="grid grid-2">
+      <article class="card">
+        <h2>樹語</h2>
+        <div id="tree-language" class="meta">尚無資料。</div>
+      </article>
+      <article class="card">
+        <h2>樹的故事</h2>
+        <div id="story-state" class="state">正在讀取故事…</div>
+        <div id="story-list"></div>
+      </article>
+    </div>
+  </section>
+
+  <div id="tree-state" class="shell state" hidden></div>
+</main>
+<div id="footer"></div>
+
+
+<nav class="bottom-nav" aria-label="主要導覽">
+  <div class="bottom-nav-inner">
+    <a href="explore.html">探索</a>
+    <a href="search.html">搜尋</a>
+    <a href="my-tree.html">我的樹</a>
+    <a href="month.html">本月</a>
+    <a href="me.html">我的</a>
+  </div>
+</nav>
+
+<script src="config.js?v=0.001"></script>
+<script type="module" src="assets/js/pages/tree.js?v=0.001"></script>
+</body>
+</html>

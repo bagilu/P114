@@ -1,0 +1,18 @@
+const errorMap = {
+  P114_CONFIG_MISSING: "網站尚未完成 Supabase 設定。",
+  P114_AUTH_REQUIRED: "請先登入。",
+  P114_FORBIDDEN: "你沒有執行此操作的權限。",
+  P114_TREE_NOT_FOUND: "找不到這棵樹。",
+  P114_TREE_NOT_FOUND_OR_INACTIVE: "這棵樹目前不可操作。",
+  P114_COMMUNITY_PHOTO_ALREADY_SUBMITTED_FOR_MONTH: "你這個月已經為這棵樹投稿過照片。",
+  P114_TREE_LANGUAGE_MAX_3_OPTIONS: "樹語最多可選三個詞。",
+  P114_STORY_CONTENT_REQUIRED: "請輸入故事內容。"
+};
+
+export function friendlyError(error) {
+  const raw = [error?.message, error?.details, error?.hint].filter(Boolean).join(" ");
+  for (const [key, msg] of Object.entries(errorMap)) {
+    if (raw.includes(key)) return msg;
+  }
+  return "目前無法完成操作，請稍後再試。";
+}
