@@ -78,3 +78,7 @@
 .stat-card strong{display:block;font-size:2rem;line-height:1}
 .stat-card span{display:block;font-weight:800;margin-top:8px}
 .stat-card small{display:block;color:var(--muted);margin-top:4px}
+
+/* V0.009 Authorization UX */
+button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed}
+#member-access-state{margin-bottom:18px}
