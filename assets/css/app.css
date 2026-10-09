@@ -61,3 +61,6 @@
 .admin-launch{display:flex;flex-direction:column;gap:8px;text-decoration:none;min-height:116px}
 .admin-launch strong{font-size:1.05rem}
 #admin-entry[hidden]{display:none!important}
+
+/* V0.007 Scientific Record */
+.timeline-list{display:grid;gap:10px}.timeline-item{box-shadow:none}.phenology-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.phenology-row{margin-top:8px}.phenology-row>span{display:grid!important;gap:4px}

@@ -1,8 +1,8 @@
-# P114｜我們的樹 — Web Version V0.006
+# P114｜我們的樹 — Web Version V0.007
 
 MyTreeMyRoot
 
-## V0.006 focus
+## V0.007 focus
 
 This release completes the first member journey:
 
@@ -45,12 +45,12 @@ Never place a Supabase service-role key in frontend files.
 
 ## Version
 
-Visible web version: `P114 Web Version V0.006`
+Visible web version: `P114 Web Version V0.007`
 
-Static asset cache busting: `?v=0.006`
+Static asset cache busting: `?v=0.007`
 
 
-## V0.006 — Auth UX fix
+## V0.007 — Auth UX fix
 
 Changes:
 - Every main topbar now reflects the actual P114 Supabase session.
@@ -82,7 +82,7 @@ P130_ACCOUNT_URL: "https://..."
 ```
 
 
-## V0.006 — Tree Management
+## V0.007 — Tree Management
 
 Implemented admin workflow:
 
@@ -110,13 +110,13 @@ Security:
 
 ### config.js packaging policy
 
-Starting with V0.006, release ZIP files DO NOT contain `config.js`.
+Starting with V0.007, release ZIP files DO NOT contain `config.js`.
 They contain only `config-sample.js`.
 
 Your deployed repository must retain its existing production `config.js`.
 
 
-## V0.006 — Admin moderation
+## V0.007 — Admin moderation
 
 Implemented:
 - Photo Review
@@ -129,9 +129,18 @@ Photo/story actions use existing P114 moderation RPCs.
 Monthly Coverage uses `P114_AdminGetMonthlyCoverage`.
 No `config.js` changes are made by this deployment.
 
-## V0.006 — Navigation and admin entry
+## V0.007 — Navigation and admin entry
 
 - Main page shows `管理介面` only to logged-in `editor` / `admin` users.
 - Admin dashboard provides `回主畫面`.
 - Admin dashboard adds quick links to the current management modules.
 - Production `config.js` is preserved and untouched.
+
+## V0.007 — Scientific Tree Record
+
+- Added admin Scientific Record / Phenology management.
+- Added public tree-profile phenology timeline.
+- Corrected Tree Language admin RPC contract to the verified backend signature:
+  `p_id, p_public_tree_id, p_label_zh, p_label_en, p_description, p_sort_order, p_active`.
+- Added `P114_GetTreePhenology` and `P114_AdminUpsertPhenologyRecord` frontend bindings.
+- Existing production `config.js` remains untouched.
