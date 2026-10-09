@@ -1,8 +1,8 @@
-# P114｜我們的樹 — Web Version V0.007
+# P114｜我們的樹 — Web Version V0.009
 
 MyTreeMyRoot
 
-## V0.007 focus
+## V0.009 focus
 
 This release completes the first member journey:
 
@@ -45,12 +45,12 @@ Never place a Supabase service-role key in frontend files.
 
 ## Version
 
-Visible web version: `P114 Web Version V0.007`
+Visible web version: `P114 Web Version V0.009`
 
-Static asset cache busting: `?v=0.007`
+Static asset cache busting: `?v=0.009`
 
 
-## V0.007 — Auth UX fix
+## V0.009 — Auth UX fix
 
 Changes:
 - Every main topbar now reflects the actual P114 Supabase session.
@@ -82,7 +82,7 @@ P130_ACCOUNT_URL: "https://..."
 ```
 
 
-## V0.007 — Tree Management
+## V0.009 — Tree Management
 
 Implemented admin workflow:
 
@@ -110,13 +110,13 @@ Security:
 
 ### config.js packaging policy
 
-Starting with V0.007, release ZIP files DO NOT contain `config.js`.
+Starting with V0.009, release ZIP files DO NOT contain `config.js`.
 They contain only `config-sample.js`.
 
 Your deployed repository must retain its existing production `config.js`.
 
 
-## V0.007 — Admin moderation
+## V0.009 — Admin moderation
 
 Implemented:
 - Photo Review
@@ -129,14 +129,14 @@ Photo/story actions use existing P114 moderation RPCs.
 Monthly Coverage uses `P114_AdminGetMonthlyCoverage`.
 No `config.js` changes are made by this deployment.
 
-## V0.007 — Navigation and admin entry
+## V0.009 — Navigation and admin entry
 
 - Main page shows `管理介面` only to logged-in `editor` / `admin` users.
 - Admin dashboard provides `回主畫面`.
 - Admin dashboard adds quick links to the current management modules.
 - Production `config.js` is preserved and untouched.
 
-## V0.007 — Scientific Tree Record
+## V0.009 — Scientific Tree Record
 
 - Added admin Scientific Record / Phenology management.
 - Added public tree-profile phenology timeline.
@@ -144,3 +144,14 @@ No `config.js` changes are made by this deployment.
   `p_id, p_public_tree_id, p_label_zh, p_label_en, p_description, p_sort_order, p_active`.
 - Added `P114_GetTreePhenology` and `P114_AdminUpsertPhenologyRecord` frontend bindings.
 - Existing production `config.js` remains untouched.
+
+
+## V0.009 — Authorization UX
+
+- Shared Auth login is now explicitly separated from P114 project authorization.
+- Tree member-write UI is hidden until an active local role (member/editor/admin) is confirmed.
+- Logged-in users without P114 access can continue browsing public tree content but cannot invoke member actions.
+- Removed unnecessary frontend calls to P114_EnsureProfile; member RPCs create profiles only after backend role checks.
+- Photo upload checks P114 authorization before Storage upload, reducing accidental orphan uploads from unauthorized users.
+- My Tree, This Month and Me now handle "authenticated but not authorized" explicitly.
+- Production config.js remains untouched.
