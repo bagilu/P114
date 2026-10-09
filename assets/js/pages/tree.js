@@ -4,3 +4,15 @@ async function renderPhenology(){const st=qs("#phenology-state"),box=qs("#phenol
 renderPhenology();
 
 loadProjectAccess();
+
+async function goToPhotoUpload(){
+  const session=await getSession();
+  if(!session){location.href=`login.html?returnTo=${encodeURIComponent(location.href+"#photo-upload")}`;return}
+  const access=projectAccess||await api.getProjectAccess();
+  if(!access?.authorized){alert("你已登入，但此帳號目前尚未取得 P114 使用權限。");return}
+  const target=qs("#photo-upload");
+  if(target){target.scrollIntoView({behavior:"smooth",block:"start"});qs("#photo-file")?.focus();}
+}
+qs("#upload-shortcut")?.addEventListener("click",goToPhotoUpload);
+qs("#month-upload-shortcut")?.addEventListener("click",goToPhotoUpload);
+if(location.hash==="#photo-upload"){setTimeout(goToPhotoUpload,250)}
