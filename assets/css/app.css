@@ -64,3 +64,17 @@
 
 /* V0.007 Scientific Record */
 .timeline-list{display:grid;gap:10px}.timeline-item{box-shadow:none}.phenology-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.phenology-row{margin-top:8px}.phenology-row>span{display:grid!important;gap:4px}
+
+/* V0.008 Member Center */
+.status-pill{display:inline-flex;align-items:center;border-radius:999px;padding:4px 8px;font-size:.78rem;font-weight:800;background:var(--surface-soft);color:var(--muted)}
+.status-approved{background:var(--accent-soft);color:var(--accent-strong)}
+.status-pending{background:#f5edcf;color:var(--warning)}
+.status-rejected{background:#f4dddd;color:var(--danger)}
+.activity-list{display:grid;gap:8px}
+.activity-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.activity-row:last-child{border-bottom:0}
+.activity-row>span:first-child{display:grid;gap:2px}
+.stat-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.stat-card strong{display:block;font-size:2rem;line-height:1}
+.stat-card span{display:block;font-weight:800;margin-top:8px}
+.stat-card small{display:block;color:var(--muted);margin-top:4px}
