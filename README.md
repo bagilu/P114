@@ -1,8 +1,8 @@
-# P114｜我們的樹 — Web Version V0.005
+# P114｜我們的樹 — Web Version V0.006
 
 MyTreeMyRoot
 
-## V0.005 focus
+## V0.006 focus
 
 This release completes the first member journey:
 
@@ -45,12 +45,12 @@ Never place a Supabase service-role key in frontend files.
 
 ## Version
 
-Visible web version: `P114 Web Version V0.005`
+Visible web version: `P114 Web Version V0.006`
 
-Static asset cache busting: `?v=0.005`
+Static asset cache busting: `?v=0.006`
 
 
-## V0.005 — Auth UX fix
+## V0.006 — Auth UX fix
 
 Changes:
 - Every main topbar now reflects the actual P114 Supabase session.
@@ -82,7 +82,7 @@ P130_ACCOUNT_URL: "https://..."
 ```
 
 
-## V0.005 — Tree Management
+## V0.006 — Tree Management
 
 Implemented admin workflow:
 
@@ -110,13 +110,13 @@ Security:
 
 ### config.js packaging policy
 
-Starting with V0.005, release ZIP files DO NOT contain `config.js`.
+Starting with V0.006, release ZIP files DO NOT contain `config.js`.
 They contain only `config-sample.js`.
 
 Your deployed repository must retain its existing production `config.js`.
 
 
-## V0.005 — Admin moderation
+## V0.006 — Admin moderation
 
 Implemented:
 - Photo Review
@@ -128,3 +128,10 @@ Admin navigation now connects all four pages.
 Photo/story actions use existing P114 moderation RPCs.
 Monthly Coverage uses `P114_AdminGetMonthlyCoverage`.
 No `config.js` changes are made by this deployment.
+
+## V0.006 — Navigation and admin entry
+
+- Main page shows `管理介面` only to logged-in `editor` / `admin` users.
+- Admin dashboard provides `回主畫面`.
+- Admin dashboard adds quick links to the current management modules.
+- Production `config.js` is preserved and untouched.
