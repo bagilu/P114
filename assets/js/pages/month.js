@@ -5,6 +5,8 @@ import{api}from"../api.js";import{getSession}from"../auth.js";import{publicMedia
   try{
     const session=await getSession();
     if(!session)return;
+    const access=await api.getProjectAccess();
+    if(!access.authorized)return;
     const now=new Date(),year=now.getFullYear(),month=now.getMonth()+1;
     const data=await Promise.all([api.getMyPhotos(),api.getPublicTrees()]);
     const mine=(data[0]||[]).filter(p=>Number(p.RecordYear)===year&&Number(p.RecordMonth)===month&&p.PhotoType==="community");
