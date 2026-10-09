@@ -1,8 +1,8 @@
-# P114｜我們的樹 — Web Version V0.009
+# P114｜我們的樹 — Web Version V0.010
 
 MyTreeMyRoot
 
-## V0.009 focus
+## V0.010 focus
 
 This release completes the first member journey:
 
@@ -45,12 +45,12 @@ Never place a Supabase service-role key in frontend files.
 
 ## Version
 
-Visible web version: `P114 Web Version V0.009`
+Visible web version: `P114 Web Version V0.010`
 
-Static asset cache busting: `?v=0.009`
+Static asset cache busting: `?v=0.010`
 
 
-## V0.009 — Auth UX fix
+## V0.010 — Auth UX fix
 
 Changes:
 - Every main topbar now reflects the actual P114 Supabase session.
@@ -82,7 +82,7 @@ P130_ACCOUNT_URL: "https://..."
 ```
 
 
-## V0.009 — Tree Management
+## V0.010 — Tree Management
 
 Implemented admin workflow:
 
@@ -110,13 +110,13 @@ Security:
 
 ### config.js packaging policy
 
-Starting with V0.009, release ZIP files DO NOT contain `config.js`.
+Starting with V0.010, release ZIP files DO NOT contain `config.js`.
 They contain only `config-sample.js`.
 
 Your deployed repository must retain its existing production `config.js`.
 
 
-## V0.009 — Admin moderation
+## V0.010 — Admin moderation
 
 Implemented:
 - Photo Review
@@ -129,14 +129,14 @@ Photo/story actions use existing P114 moderation RPCs.
 Monthly Coverage uses `P114_AdminGetMonthlyCoverage`.
 No `config.js` changes are made by this deployment.
 
-## V0.009 — Navigation and admin entry
+## V0.010 — Navigation and admin entry
 
 - Main page shows `管理介面` only to logged-in `editor` / `admin` users.
 - Admin dashboard provides `回主畫面`.
 - Admin dashboard adds quick links to the current management modules.
 - Production `config.js` is preserved and untouched.
 
-## V0.009 — Scientific Tree Record
+## V0.010 — Scientific Tree Record
 
 - Added admin Scientific Record / Phenology management.
 - Added public tree-profile phenology timeline.
@@ -146,7 +146,7 @@ No `config.js` changes are made by this deployment.
 - Existing production `config.js` remains untouched.
 
 
-## V0.009 — Authorization UX
+## V0.010 — Authorization UX
 
 - Shared Auth login is now explicitly separated from P114 project authorization.
 - Tree member-write UI is hidden until an active local role (member/editor/admin) is confirmed.
@@ -154,4 +154,14 @@ No `config.js` changes are made by this deployment.
 - Removed unnecessary frontend calls to P114_EnsureProfile; member RPCs create profiles only after backend role checks.
 - Photo upload checks P114 authorization before Storage upload, reducing accidental orphan uploads from unauthorized users.
 - My Tree, This Month and Me now handle "authenticated but not authorized" explicitly.
+- Production config.js remains untouched.
+
+
+## V0.010 — Photo upload discoverability
+
+- Added prominent "上傳本月照片" actions on every Tree Profile.
+- Member upload form now has a stable #photo-upload anchor and clearer copy that both members and admins may submit community photos there.
+- My Tree now links directly to the guardian tree's photo upload section.
+- Admin Tree Management now explains the admin photo workflow and renames Tree Media to "管理員照片上傳（Tree Media）".
+- Admin dashboard Tree Management card now calls out photo upload.
 - Production config.js remains untouched.
