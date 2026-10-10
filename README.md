@@ -1,8 +1,8 @@
-# P114｜我們的樹 — Web Version V0.012
+# P114｜我們的樹 — Web Version V0.013
 
 MyTreeMyRoot
 
-## V0.012 focus
+## V0.013 focus
 
 This release completes the first member journey:
 
@@ -45,12 +45,12 @@ Never place a Supabase service-role key in frontend files.
 
 ## Version
 
-Visible web version: `P114 Web Version V0.012`
+Visible web version: `P114 Web Version V0.013`
 
-Static asset cache busting: `?v=0.012`
+Static asset cache busting: `?v=0.013`
 
 
-## V0.012 — Auth UX fix
+## V0.013 — Auth UX fix
 
 Changes:
 - Every main topbar now reflects the actual P114 Supabase session.
@@ -82,7 +82,7 @@ P130_ACCOUNT_URL: "https://..."
 ```
 
 
-## V0.012 — Tree Management
+## V0.013 — Tree Management
 
 Implemented admin workflow:
 
@@ -110,13 +110,13 @@ Security:
 
 ### config.js packaging policy
 
-Starting with V0.012, release ZIP files DO NOT contain `config.js`.
+Starting with V0.013, release ZIP files DO NOT contain `config.js`.
 They contain only `config-sample.js`.
 
 Your deployed repository must retain its existing production `config.js`.
 
 
-## V0.012 — Admin moderation
+## V0.013 — Admin moderation
 
 Implemented:
 - Photo Review
@@ -129,14 +129,14 @@ Photo/story actions use existing P114 moderation RPCs.
 Monthly Coverage uses `P114_AdminGetMonthlyCoverage`.
 No `config.js` changes are made by this deployment.
 
-## V0.012 — Navigation and admin entry
+## V0.013 — Navigation and admin entry
 
 - Main page shows `管理介面` only to logged-in `editor` / `admin` users.
 - Admin dashboard provides `回主畫面`.
 - Admin dashboard adds quick links to the current management modules.
 - Production `config.js` is preserved and untouched.
 
-## V0.012 — Scientific Tree Record
+## V0.013 — Scientific Tree Record
 
 - Added admin Scientific Record / Phenology management.
 - Added public tree-profile phenology timeline.
@@ -146,7 +146,7 @@ No `config.js` changes are made by this deployment.
 - Existing production `config.js` remains untouched.
 
 
-## V0.012 — Authorization UX
+## V0.013 — Authorization UX
 
 - Shared Auth login is now explicitly separated from P114 project authorization.
 - Tree member-write UI is hidden until an active local role (member/editor/admin) is confirmed.
@@ -157,7 +157,7 @@ No `config.js` changes are made by this deployment.
 - Production config.js remains untouched.
 
 
-## V0.012 — Photo upload discoverability
+## V0.013 — Photo upload discoverability
 
 - Added prominent "上傳本月照片" actions on every Tree Profile.
 - Member upload form now has a stable #photo-upload anchor and clearer copy that both members and admins may submit community photos there.
@@ -167,7 +167,7 @@ No `config.js` changes are made by this deployment.
 - Production config.js remains untouched.
 
 
-## V0.012 — Tree creation feedback
+## V0.013 — Tree creation feedback
 
 - Tree Management now shows whether Institution / Campus prerequisites are ready.
 - Create Tree is disabled until at least one Campus exists.
@@ -177,7 +177,7 @@ No `config.js` changes are made by this deployment.
 - Production config.js remains untouched.
 
 
-## V0.012 — Find Tree UX
+## V0.013 — Find Tree UX
 
 - Added "帶我去找它" to Tree Profile.
 - Current GPS is used only to estimate distance; raw coordinates remain hidden from the public UI.
@@ -185,4 +185,14 @@ No `config.js` changes are made by this deployment.
 - Under 20m the UI explicitly tells users to switch to landmark/environment/tree-feature confirmation instead of trusting GPS as exact tree identification.
 - "我找到它了" now records current latitude/longitude when permission is available, allowing the backend to store distance-to-tree; it falls back to a visit without location if permission is denied.
 - Explore / Near Me now labels candidates with the same distance states.
+- Production config.js remains untouched.
+
+
+## V0.013 — Admin data quality
+
+- Institution and Campus records are now listed directly under their forms and can be reopened for editing.
+- Duplicate Institution names and duplicate Campus names within the same Institution are blocked in the admin UI.
+- Campus can be changed to inactive when it should no longer be used; destructive deletion is intentionally not exposed because referenced Campus / Tree data must remain intact.
+- Latitude / Longitude inputs use 6 decimal places and are automatically rounded on blur and before save.
+- Required fields now show a red * marker.
 - Production config.js remains untouched.
