@@ -154,6 +154,7 @@ No `config.js` changes are made by this deployment.
 - Removed unnecessary frontend calls to P114_EnsureProfile; member RPCs create profiles only after backend role checks.
 - Photo upload checks P114 authorization before Storage upload, reducing accidental orphan uploads from unauthorized users.
 - My Tree, This Month and Me now handle "authenticated but not authorized" explicitly.
+- Observation Point entries can now be reopened for editing, and reference photos can be uploaded directly from Tree Management.
 - Production config.js remains untouched.
 
 
