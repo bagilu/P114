@@ -1,6 +1,7 @@
 import { getSession, signIn, signOut, onAuthStateChange } from "../auth.js";
 import { qs, setState, footerHtml } from "../ui.js";
 import { friendlyError } from "../errors.js";
+import { api } from "../api.js";
 
 qs("#footer").innerHTML = footerHtml();
 
@@ -10,6 +11,17 @@ const submitBtn = qs("#login-submit");
 const sessionBox = qs("#existing-session");
 const sessionEmail = qs("#existing-session-email");
 const headerStatus = qs("#login-header-status");
+
+function safeReturnTo(value) {
+  if (!value) return "index.html";
+  try {
+    const url = new URL(value, location.href);
+    if (url.origin !== location.origin) return "index.html";
+    return url.pathname + url.search + url.hash;
+  } catch {
+    return "index.html";
+  }
+}
 
 function validExternalUrl(value) {
   return typeof value === "string" &&
@@ -88,11 +100,12 @@ form.addEventListener("submit", async e => {
     );
 
     renderSession(session);
-    setState(state, `登入成功：${session.user?.email || ""}。正在返回 P114…`, "success");
+    const provision = await api.ensureMemberAccess();
+    setState(state, `登入成功：${session.user?.email || ""}。${provision === "member_created" ? "已自動開通 P114 member。" : "P114 權限已確認。"} 正在返回 P114…`, "success");
 
-    const returnTo = new URLSearchParams(location.search).get("returnTo");
+    const returnTo = safeReturnTo(new URLSearchParams(location.search).get("returnTo"));
     window.setTimeout(() => {
-      location.href = returnTo || "index.html";
+      location.href = returnTo;
     }, 850);
   } catch (err) {
     renderSession(null);
