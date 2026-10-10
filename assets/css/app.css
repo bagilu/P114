@@ -97,3 +97,20 @@ button:disabled,.btn:disabled{opacity:.5;cursor:not-allowed}
 /* V0.014 Safe Delete */
 .btn-danger:not(:disabled){border-color:#e2b7b7;background:#fff7f7}
 .btn-danger:not(:disabled):hover{border-color:var(--danger);background:#fbeaea}
+
+/* V0.017 Tree Profile Audit */
+.audit-list{display:grid;gap:16px}
+.audit-card{display:grid;gap:12px}
+.audit-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.audit-head h3{margin:.2rem 0}
+.audit-score{min-width:96px;text-align:center;border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:var(--surface-soft)}
+.audit-score strong{display:block;font-size:1.7rem;line-height:1}
+.audit-score span{font-size:.8rem;font-weight:800}
+.audit-score.success{background:var(--accent-soft);color:var(--accent-strong);border-color:#b8d0ba}
+.audit-score.warning{background:#f5edcf;color:var(--warning);border-color:#e5d79e}
+.audit-score.error{background:#f4dddd;color:var(--danger);border-color:#e7bcbc}
+.audit-checks{display:flex;flex-wrap:wrap;gap:7px}
+.audit-chip{display:inline-flex;align-items:center;border-radius:999px;padding:5px 9px;font-size:.8rem;font-weight:800}
+.audit-chip.ok{background:var(--accent-soft);color:var(--accent-strong)}
+.audit-chip.missing{background:var(--surface-soft);color:var(--muted);border:1px solid var(--line)}
+@media(max-width:620px){.audit-head{flex-direction:column}.audit-score{width:100%}}
