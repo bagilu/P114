@@ -1,8 +1,8 @@
-# P114｜我們的樹 — Web Version V0.019
+# P114｜我們的樹 — Web Version V0.020
 
 MyTreeMyRoot
 
-## V0.019 focus
+## V0.020 focus
 
 This release completes the first member journey:
 
@@ -45,12 +45,12 @@ Never place a Supabase service-role key in frontend files.
 
 ## Version
 
-Visible web version: `P114 Web Version V0.019`
+Visible web version: `P114 Web Version V0.020`
 
-Static asset cache busting: `?v=0.019`
+Static asset cache busting: `?v=0.020`
 
 
-## V0.019 — Auth UX fix
+## V0.020 — Auth UX fix
 
 Changes:
 - Every main topbar now reflects the actual P114 Supabase session.
@@ -82,7 +82,7 @@ P130_ACCOUNT_URL: "https://..."
 ```
 
 
-## V0.019 — Tree Management
+## V0.020 — Tree Management
 
 Implemented admin workflow:
 
@@ -110,13 +110,13 @@ Security:
 
 ### config.js packaging policy
 
-Starting with V0.019, release ZIP files DO NOT contain `config.js`.
+Starting with V0.020, release ZIP files DO NOT contain `config.js`.
 They contain only `config-sample.js`.
 
 Your deployed repository must retain its existing production `config.js`.
 
 
-## V0.019 — Admin moderation
+## V0.020 — Admin moderation
 
 Implemented:
 - Photo Review
@@ -129,14 +129,14 @@ Photo/story actions use existing P114 moderation RPCs.
 Monthly Coverage uses `P114_AdminGetMonthlyCoverage`.
 No `config.js` changes are made by this deployment.
 
-## V0.019 — Navigation and admin entry
+## V0.020 — Navigation and admin entry
 
 - Main page shows `管理介面` only to logged-in `editor` / `admin` users.
 - Admin dashboard provides `回主畫面`.
 - Admin dashboard adds quick links to the current management modules.
 - Production `config.js` is preserved and untouched.
 
-## V0.019 — Scientific Tree Record
+## V0.020 — Scientific Tree Record
 
 - Added admin Scientific Record / Phenology management.
 - Added public tree-profile phenology timeline.
@@ -146,7 +146,7 @@ No `config.js` changes are made by this deployment.
 - Existing production `config.js` remains untouched.
 
 
-## V0.019 — Authorization UX
+## V0.020 — Authorization UX
 
 - Shared Auth login is now explicitly separated from P114 project authorization.
 - Tree member-write UI is hidden until an active local role (member/editor/admin) is confirmed.
@@ -158,7 +158,7 @@ No `config.js` changes are made by this deployment.
 - Production config.js remains untouched.
 
 
-## V0.019 — Photo upload discoverability
+## V0.020 — Photo upload discoverability
 
 - Added prominent "上傳本月照片" actions on every Tree Profile.
 - Member upload form now has a stable #photo-upload anchor and clearer copy that both members and admins may submit community photos there.
@@ -168,7 +168,7 @@ No `config.js` changes are made by this deployment.
 - Production config.js remains untouched.
 
 
-## V0.019 — Tree creation feedback
+## V0.020 — Tree creation feedback
 
 - Tree Management now shows whether Institution / Campus prerequisites are ready.
 - Create Tree is disabled until at least one Campus exists.
@@ -178,7 +178,7 @@ No `config.js` changes are made by this deployment.
 - Production config.js remains untouched.
 
 
-## V0.019 — Find Tree UX
+## V0.020 — Find Tree UX
 
 - Added "帶我去找它" to Tree Profile.
 - Current GPS is used only to estimate distance; raw coordinates remain hidden from the public UI.
@@ -189,7 +189,7 @@ No `config.js` changes are made by this deployment.
 - Production config.js remains untouched.
 
 
-## V0.019 — Admin data quality
+## V0.020 — Admin data quality
 
 - Institution and Campus records are now listed directly under their forms and can be reopened for editing.
 - Duplicate Institution names and duplicate Campus names within the same Institution are blocked in the admin UI.
@@ -199,7 +199,7 @@ No `config.js` changes are made by this deployment.
 - Production config.js remains untouched.
 
 
-## V0.019 — Safe cleanup
+## V0.020 — Safe cleanup
 
 - Added admin-only safe delete for Institution and Campus.
 - Institution deletion is refused while any Campus references it.
@@ -212,7 +212,7 @@ No `config.js` changes are made by this deployment.
 Deployment note: run database/007_P114_SafeDelete.sql in Supabase before using the new safe-delete buttons.
 
 
-## V0.019 — Duplicate merge
+## V0.020 — Duplicate merge
 
 - Added Data Cleanup page for admin-only duplicate consolidation.
 - Institution merge reassigns Campuses from source to target, then removes the duplicate source record.
@@ -223,31 +223,31 @@ Deployment note: run database/007_P114_SafeDelete.sql in Supabase before using t
 Deployment note: run database/008_P114_MergeDuplicates.sql in Supabase before using Data Cleanup merge actions.
 
 
-## V0.019 — Founding Trees curation
+## V0.020 — Founding Trees curation
 
 - Added a dedicated Founding Trees admin page for editor/admin users.
 - Shows current Founding Tree count, total Tree count, and campus coverage.
 - Supports search and filters for all / selected / unselected Trees.
 - Added backend migration: database/009_P114_FoundingTrees.sql.
 - Homepage now explains Founding Trees as the first curated representative trees for new users.
-- HTML cache-busting aligned to V0.019.
+- HTML cache-busting aligned to V0.020.
 - Production config.js remains untouched.
 
 Deployment note: run database/009_P114_FoundingTrees.sql in Supabase before changing Founding Tree flags from the new admin page.
 
 
-## V0.019 — Tree Profile completeness
+## V0.020 — Tree Profile completeness
 
 - Added admin Tree Profile Audit page for editor/admin users.
 - Checks 14 profile components per tree: species, coordinates, landmark, relative location, direction note, identification note, individual note, campus story, hero image, location signature image, whole-tree image, trunk/feature image, Observation Point, and Observation Point reference photo.
 - Calculates an at-a-glance completeness percentage and identifies missing components.
 - Adds filters for incomplete / ready / Founding Trees and sorting by completeness.
 - Adds direct links from the audit result to Tree Management and the public Tree Profile.
-- No new SQL migration is required for V0.019.
+- No new SQL migration is required for V0.020.
 - Production config.js remains untouched.
 
 
-## V0.019 — Auto Member Provisioning
+## V0.020 — Auto Member Provisioning
 
 - Any Shared Auth user who successfully enters P114 is automatically provisioned with the local `member` role when no prior P114 role exists.
 - Existing active `editor` / `admin` roles are preserved and are never downgraded.
@@ -261,7 +261,7 @@ Deployment note: run database/009_P114_FoundingTrees.sql in Supabase before chan
 Deployment note: run `database/010_P114_AutoMemberProvisioning.sql` in Supabase before testing a new account.
 
 
-## V0.019 — Tree IDs, campuses, phenology, admin nav
+## V0.020 — Tree IDs, campuses, phenology, admin nav
 
 - New Tree IDs are generated by the backend as the next permanent Txxxx value; admins no longer type T0001-style IDs manually.
 - Added migration: `database/011_P114_AutoTreeId.sql`.
@@ -271,3 +271,15 @@ Deployment note: run `database/010_P114_AutoMemberProvisioning.sql` in Supabase 
 - Production `config.js` remains untouched.
 
 Deployment note: run `database/011_P114_AutoTreeId.sql` in Supabase before creating the next Tree.
+
+
+## V0.020 — Automatic Image Compression
+
+- Community monthly photos are optimized in the browser before upload.
+- Community target: under 1 MB, max long edge 2048 px, JPEG re-encoding with adaptive quality/downscaling.
+- Admin Tree Media and Observation Point reference photos use a higher-detail target: under 2 MB, max long edge 2400 px.
+- Original large files are not uploaded to Supabase Storage; only the optimized image is uploaded.
+- Upload feedback shows original size, optimized size, and resized dimensions for community photos.
+- Supported inputs: JPEG, PNG, WebP.
+- No SQL migration is required for V0.020.
+- Production config.js remains untouched.
