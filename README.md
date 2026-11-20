@@ -1,4 +1,4 @@
-# P114｜我們的樹 — Web Version V0.020
+# P114｜我們的樹 — Web Version V0.021
 
 MyTreeMyRoot
 
@@ -45,9 +45,9 @@ Never place a Supabase service-role key in frontend files.
 
 ## Version
 
-Visible web version: `P114 Web Version V0.020`
+Visible web version: `P114 Web Version V0.021`
 
-Static asset cache busting: `?v=0.020`
+Static asset cache busting: `?v=0.021`
 
 
 ## V0.020 — Auth UX fix
@@ -283,3 +283,14 @@ Deployment note: run `database/011_P114_AutoTreeId.sql` in Supabase before creat
 - Supported inputs: JPEG, PNG, WebP.
 - No SQL migration is required for V0.020.
 - Production config.js remains untouched.
+
+
+## V0.021 — SDS v3.7 alignment (phase 1)
+
+- Added Tree Management field hints for relative location, direction, identification, individual features, and campus story.
+- Added DBH guidance: measure trunk diameter at 1.3 m above ground.
+- Homepage loads the P101 centralized anonymous analytics script with Project Code P114.
+- Shared footer now links 「好玩實驗室」 to P101 and shows Web Version V0.021 · SBI-P-SDS v3.7.
+- Production config.js remains untouched.
+- IMPORTANT: full SDS v3.7 compliance is not yet claimed because assets/js/api.js still contains direct Table/View reads. These must be migrated to P114 RPCs before QA-02 / QA-03 can PASS.
+- P101 central project registration SQL is not emitted with a guessed Origin; canonical Origin must be confirmed before that governance step is completed.
