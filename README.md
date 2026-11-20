@@ -290,7 +290,16 @@ Deployment note: run `database/011_P114_AutoTreeId.sql` in Supabase before creat
 - Added Tree Management field hints for relative location, direction, identification, individual features, and campus story.
 - Added DBH guidance: measure trunk diameter at 1.3 m above ground.
 - Homepage loads the P101 centralized anonymous analytics script with Project Code P114.
-- Shared footer now links 「好玩實驗室」 to P101 and shows Web Version V0.021 · SBI-P-SDS v3.7.
+- Shared footer now links 「好玩實驗室」 to P101 and shows Web Version V0.021. The SDS v3.7 badge is intentionally withheld until the remaining backend/runtime checks pass.
 - Production config.js remains untouched.
-- IMPORTANT: full SDS v3.7 compliance is not yet claimed because assets/js/api.js still contains direct Table/View reads. These must be migrated to P114 RPCs before QA-02 / QA-03 can PASS.
-- P101 central project registration SQL is not emitted with a guessed Origin; canonical Origin must be confirmed before that governance step is completed.
+- Added `database/012_P114_RPCOnlyReads.sql` to prepare RPC-only frontend reads. The production frontend remains on the compatible direct-read path until 012 is executed in Supabase; after execution, the API layer can be switched without breaking the live site.
+- Added P101 central registration and verification SQL using the repository Pages origin `https://bagilu.github.io`; these files are governance operations for the P101 central Supabase and must NOT be run as P114 migrations.
+
+
+### V0.021 deployment order
+
+1. Run `database/012_P114_RPCOnlyReads.sql` in the P114 Supabase project.
+2. After 012 succeeds, switch `assets/js/api.js` to the prepared RPC-only read bindings and run the v3.7 static checks.
+3. P101 platform administrator runs `database/P114_P101_Analytics_Register.sql` in the P101 central Supabase project, then runs `database/P114_P101_Analytics_Verify.sql`.
+4. Verify P101 receives P114 homepage events and that analytics failure does not affect P114.
+5. Only after QA-02/03/24/25/26/28 and the remaining v3.7 checks pass should the footer display `SBI-P-SDS v3.7`.
